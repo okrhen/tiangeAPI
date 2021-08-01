@@ -1,14 +1,18 @@
 const Query = `
   type Query {
-    books: [Book]
-    book(title: String!): Book
     users: [User]
     getUserRoles: [UserRole]
 
     getProductCategories: [ProductCategory]
+    getProductUnit: [ProductUnit]
+    getProductInventory(id: ID): Int
+    getProducts: [ProductList]
+    findProductBySkuCode(code: String!): ProductList
+
+    getActiveSalesTransaction(transactionNumber: ID!): SalesTransactionItems
+    
+    getTaxData(name: String!): Tax
   }
 `;
 
-module.exports = {
-    Query
-}
+module.exports = Query

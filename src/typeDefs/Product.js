@@ -11,17 +11,18 @@ const Product = `
     productCategory: ProductCategory
     productStatus: ProductStatus
     dateCreated: Date
+    inventory: ProductInventory
   }
 
-  input CreateProduct  {
-    barcode: String
-    name: String
-    productCategoryID: ID!
-    storeID: ID!
+  input InputCreateProduct  {
+    barcode: String!
+    name: String!
+    category: String!
     cost: Float
     price: Float
     quantity: Int
-    quantityType: ID
+    unit: String!
+    description: String
   }
 
   type ProductCategory {
@@ -37,15 +38,35 @@ const Product = `
     dateCreated: Date
   }
 
-  type ProductInvetory {
+  type ProductInventory {
     id: ID!
+    productId: ID!
     product: Product
     quantity: Int
     dateAdded: Date
     user: User
     dateCreated: Date
   }
-    
+
+  type ProductUnit {
+    id: ID!
+    name: String
+    status: Boolean
+    dateAdded: Date
+  }
+
+  type ProductList {
+    id: ID!
+    barcode: String!
+    description: String
+    name: String!
+    unit: ProductUnit
+    category: ProductCategory
+    inventory: ProductInventory
+    cost: Float
+    price: Float
+  }
+
 `;
 
 

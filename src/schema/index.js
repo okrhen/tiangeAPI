@@ -1,10 +1,10 @@
 const { makeExecutableSchema } = require('graphql-tools')
 const {
-    Book,
     User,
     Product,
     Sales,
     Transaction,
+    Taxes,
 
     Query,
     Mutation
@@ -16,11 +16,12 @@ const schema = makeExecutableSchema({
         Query,
         Mutation,
 
-        Book,
+        // types
         User,
         Product,
         Sales,
-        Transaction
+        Transaction,
+        Taxes
     ],
     resolvers
 })

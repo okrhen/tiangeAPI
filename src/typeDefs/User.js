@@ -31,7 +31,6 @@ const User = `
     token: String!
   }
   
-
 `;
 
 

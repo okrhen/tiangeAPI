@@ -4,15 +4,14 @@ const { ApolloServer, AuthenticationError, } = require('apollo-server');
 const db = require('./src/database');
 const schema = require('./src/schema')
 
-const server = new ApolloServer({schema, context: async({req}) => {
-
-
+const server = new ApolloServer({
+  schema, 
+  context: async({req}) => {
     if(!req.headers.authorization) {
         return {
             db
         }
     }
-
     const auth = req.headers.authorization.split(' ')[1] || '';
     const {error} = await db.auth.api.getUser(auth)
     
@@ -24,7 +23,8 @@ const server = new ApolloServer({schema, context: async({req}) => {
     return {
         db
     }
-}});
+  }
+});
 
 // The `listen` method launches a web server.
 server.listen().then(({ url }) => {
