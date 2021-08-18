@@ -67,6 +67,16 @@ const Product = `
     price: Float
   }
 
+  type TempProducts {
+    barcode: String!
+    description: String
+    name: String!
+    category: String
+    price: Float
+    slug: String
+    brand: String
+  }
+
 `;
 
 

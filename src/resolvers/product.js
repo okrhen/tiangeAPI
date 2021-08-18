@@ -219,6 +219,39 @@ const productQuery = {
       }
 
       return data
+    },
+    getTempProducts: async(_, args, context) => {
+      const {data} = await context.db
+      .from('temp_product')
+      .select('id, name: Name, price: Price, category: Category, slug: Slug')
+      .limit(10)
+
+      return data
+    },
+    getTempProductBySlug: async(_, args, context) => {
+      const {data} = await context.db
+      .from('temp_product')
+      .select('id, name: Name, price: Price, category: Category, slug: Slug, brand: Brand')
+      .eq('Slug', args.slug)
+      .single()
+
+      return data
+    },
+    getTempProductByCategory: async(_, args, context) => {
+      const {data} = await context.db
+      .from('temp_product')
+      .select('id, name: Name, price: Price, category: Category, slug: Slug, brand: Brand')
+      .eq('Category', args.category)
+      .limit(18)
+
+      return data
+    },
+    getTempProductCategory: async(_, args, context) => {
+      const { 
+        data, 
+      } = await context.db.rpc('select_distinct_category')
+    
+      return data
     }
 }
 

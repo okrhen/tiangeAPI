@@ -12,6 +12,11 @@ const Query = `
     getActiveSalesTransaction(transactionNumber: ID!): SalesTransactionItems
     
     getTaxData(name: String!): Tax
+
+    getTempProducts: [TempProducts]
+    getTempProductCategory: [String]
+    getTempProductBySlug(slug: String): TempProducts
+    getTempProductByCategory(category: String): [TempProducts]
   }
 `;
 
