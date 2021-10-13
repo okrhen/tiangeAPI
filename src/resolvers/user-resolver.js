@@ -1,4 +1,4 @@
-const { AuthenticationError } = require("apollo-server-errors");
+const { AuthenticationError } = require("apollo-server-lambda");
 
 const userMutation = {
     signUpUser: async(_, args, context) => {

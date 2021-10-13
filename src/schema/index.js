@@ -1,4 +1,4 @@
-const { makeExecutableSchema } = require('graphql-tools')
+const { makeExecutableSchema } = require('apollo-server-lambda')
 const {
     User,
     Product,

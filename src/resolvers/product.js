@@ -1,4 +1,4 @@
-const {UserInputError} = require('apollo-server');
+const {UserInputError} = require('apollo-server-lambda');
 const generateSku = require('../utils/generate-sku');
 
 const productMutation = {
@@ -93,7 +93,7 @@ const productMutation = {
                 name: payload.name,
                 price: payload.price,
                 cost: payload.cost,
-                description: payload.description,
+                description: payload?.description,
                 product_category_id: payload.category,
                 product_unit_id: payload.unit,
                 sku: generateSku(payload)

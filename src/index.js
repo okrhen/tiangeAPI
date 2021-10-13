@@ -1,8 +1,8 @@
 require('dotenv').config()
 
-const { ApolloServer, AuthenticationError, } = require('apollo-server');
-const db = require('./src/database');
-const schema = require('./src/schema')
+const { ApolloServer, AuthenticationError, } = require('apollo-server-lambda');
+const db = require('./database');
+const schema = require('./schema')
 
 const server = new ApolloServer({
   schema, 
@@ -23,10 +23,9 @@ const server = new ApolloServer({
     return {
         db
     }
-  }
+  },
+  mocks: true,
+  playground: true
 });
 
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-});
+exports.handler = server.createHandler()
