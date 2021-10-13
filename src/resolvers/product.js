@@ -93,7 +93,7 @@ const productMutation = {
                 name: payload.name,
                 price: payload.price,
                 cost: payload.cost,
-                description: payload?.description,
+                description: payload.description,
                 product_category_id: payload.category,
                 product_unit_id: payload.unit,
                 sku: generateSku(payload)
